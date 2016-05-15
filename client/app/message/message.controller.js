@@ -37,7 +37,7 @@ angular.module('kisanApp')
             $mdDialog.show(confirm).then(function() {
 
                 var data = { email: $scope.info.email, otp: ran, cell: $scope.info.phNo, sentTo: $scope.info._id, sentBy: _user._id };
-                console.log('ddddddddddd',data)
+                //console.log('ddddddddddd',data)
                 service.sendOTP(data).then(function(res) {
                     console.log('mail response');
                 })
