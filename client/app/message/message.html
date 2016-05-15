@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div ng-cloak>
+                <md-content>
+                    <md-tabs md-dynamic-height md-border-bottom>
+                        <md-tab label="Contacts">
+                            <md-content class="md-padding">
+                                <!--div ui-view=""></div-->
+                                <div class="row">
+                                    <div class="col-lg-6 rcorners2">
+                                        <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-4" ng-repeat='contact in contacts'>
+                                            <li ng-click='display($index)'><a href="#">{{contact.fname + ' ' + contact.lname}}</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 rcorners1" ng-show='clicked'>
+                                        <ul class="info">Name: {{info.fname +' ' +info.lname}}</ul>
+                                        <ul class="info">Phone No: {{info.phNo}}</ul>
+                                        <ul class="info">Email Id: {{info.email}}</ul>
+                                        <md-button class="md-primary md-raised" ng-click="showConfirm($event)">
+                                            Send OTP
+                                        </md-button>
+                                    </div>
+                                </div>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Messages" ng-click='listMessage()'>
+                            <md-content class="md-padding">
+                                <div class="col-lg-4" ng-repeat='mes in messageList'>
+                                <div class="rcorners1">
+                                  <ul class="info">Name: {{mes.sentTo.fname +' ' +mes.sentTo.lname}}</ul>
+                                    <ul class="info">Phone No: {{mes.sentTo.phNo}}</ul>
+                                    <ul class="info">Email Id: {{mes.sentTo.email}}</ul>
+                                    <ul class="info">Sent OTP: {{mes.OTP}}</ul>
+                                   <ul class="info">Sent Time: {{mes.lastModified|date}}</ul>
+                                </div>
+                                    
+                                </div>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-content>
+            </div>
+        </div>
+    </div>
+</div>
